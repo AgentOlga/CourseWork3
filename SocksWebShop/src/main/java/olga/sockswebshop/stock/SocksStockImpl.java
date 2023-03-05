@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 @Repository
 public class SocksStockImpl implements SocksStock {
-    private HashMap<Socks, Integer> socksMap = new HashMap<>();
+    private Map<Socks, Integer> socksMap = new HashMap<>();
 
 
     @Override
@@ -29,7 +29,7 @@ public class SocksStockImpl implements SocksStock {
             int quantity = socksMap.get(socks);
 
             if (quantity > socksBatch.getQuantity()) {
-                socksMap.replace(socks, socksMap.get(socks) - socksBatch.getQuantity());
+                socksMap.replace(socks,quantity - socksBatch.getQuantity());
                 return socksBatch.getQuantity();
             } else {
                 socksMap.remove(socks);
